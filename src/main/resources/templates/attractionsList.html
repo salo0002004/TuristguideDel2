@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Turistattraktioner</title>
-    <link th:href="@{/main.css}" rel="stylesheet">
+    <title>Tourist Attractions</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
 </head>
 <body>
-<h1>Liste over Turistattraktioner</h1>
+<h1>Tourist Attractions</h1>
 <table>
     <thead>
     <tr>
-        <th>Navn</th>
-        <th>Beskrivelse</th>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Rating</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="attraction : ${attractions}">
         <td th:text="${attraction.name}"></td>
-        <td th:text="${attraction.description}"></td>
+        <td th:text="${attraction.location}"></td>
+        <td th:text="${attraction.rating}"></td>
+        <td>
+            <a th:href="@{/{attraction.name}/edit}" class="btn">Edit</a>
+            <a th:href="@{/{attraction.name}/delete}" class="btn">Delete</a>
+            <a th:href="@{/{attraction.name}/tags}" class="btn">Tags</a>
+        </td>
     </tr>
     </tbody>
 </table>
+<a th:href="@{/add}" class="btn">Add New Attraction</a>
 </body>
 </html>
-
-has context menu
