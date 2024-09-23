@@ -17,7 +17,6 @@ public class TouristAttraction {
         this.tags = tags;
     }
 
-    // Getters and setters for all fields
 
     public String getName() {
         return name;
